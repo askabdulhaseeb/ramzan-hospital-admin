@@ -12,9 +12,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(color: Colors.transparent, elevation: 0),
         primarySwatch: Colors.blue,
       ),
       home: const LoginScreen(),
+      routes: <String, WidgetBuilder>{
+        LoginScreen.routeName: (_) => const LoginScreen(),
+      },
     );
   }
 }
