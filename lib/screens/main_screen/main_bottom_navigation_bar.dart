@@ -24,12 +24,12 @@ class MainBottomNavigationBar extends StatelessWidget {
           label: 'Home',
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.barcode_viewfinder),
-          label: 'Scan',
+          icon: Icon(CupertinoIcons.rectangle_stack_person_crop),
+          label: 'Report',
         ),
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.bag),
-          label: 'Bag',
+          icon: Icon(CupertinoIcons.profile_circled),
+          label: 'Profile',
         ),
       ],
     );

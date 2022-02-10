@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramzanadmin/providers/main_bottom_nav_bar_provider.dart';
 import 'package:ramzanadmin/screens/auth/login_screen.dart';
+import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
+import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
 import 'package:ramzanadmin/screens/main_screen/main_screen.dart';
 
 void main() {
@@ -23,6 +25,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
             color: Colors.transparent,
             elevation: 0,
+            iconTheme: IconThemeData(color: Colors.blue),
           ),
           primarySwatch: Colors.blue,
         ),
@@ -30,6 +33,9 @@ class MyApp extends StatelessWidget {
         routes: <String, WidgetBuilder>{
           LoginScreen.routeName: (_) => const LoginScreen(),
           MainScreen.routeName: (_) => const MainScreen(),
+          // Doctor
+          DoctorDashboard.routeName: (_) => const DoctorDashboard(),
+          AddDoctor.routeName: (_) => const AddDoctor(),
         },
       ),
     );
