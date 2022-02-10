@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:ramzanadmin/screens/pages/home_page.dart';
 import '../../providers/main_bottom_nav_bar_provider.dart';
 import 'main_bottom_navigation_bar.dart';
 
@@ -9,7 +10,7 @@ class MainScreen extends StatelessWidget {
   static const String routeName = '/MainScreen';
 
   static const List<Widget> _pages = <Widget>[
-    Center(child: Text('1')),
+    HomePage(),
     Center(child: Text('2')),
     Center(child: Text('3')),
   ];

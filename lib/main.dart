@@ -20,8 +20,10 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-          appBarTheme:
-              const AppBarTheme(color: Colors.transparent, elevation: 0),
+          appBarTheme: const AppBarTheme(
+            color: Colors.transparent,
+            elevation: 0,
+          ),
           primarySwatch: Colors.blue,
         ),
         home: const MainScreen(),
