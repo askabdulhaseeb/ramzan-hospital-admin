@@ -7,6 +7,8 @@ import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
 import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
 import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
 import 'package:ramzanadmin/screens/main_screen/main_screen.dart';
+import 'package:ramzanadmin/screens/tests/add_test.dart';
+import 'package:ramzanadmin/screens/tests/test_dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,6 +43,9 @@ class MyApp extends StatelessWidget {
           //Departments
           DepartmentDashboard.routeName: (_) => const DepartmentDashboard(),
           AddDepartment.routeName: (_) => const AddDepartment(),
+          //Tests
+          TestDashboard.routeName: (_) => const TestDashboard(),
+          AddTest.routeName: (_) => const AddTest(),
         },
       ),
     );
