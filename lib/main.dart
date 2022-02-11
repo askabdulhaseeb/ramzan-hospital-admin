@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramzanadmin/providers/main_bottom_nav_bar_provider.dart';
 import 'package:ramzanadmin/screens/auth/login_screen.dart';
+import 'package:ramzanadmin/screens/departments/add_department.dart';
+import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
 import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
 import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
 import 'package:ramzanadmin/screens/main_screen/main_screen.dart';
@@ -36,6 +38,9 @@ class MyApp extends StatelessWidget {
           // Doctor
           DoctorDashboard.routeName: (_) => const DoctorDashboard(),
           AddDoctor.routeName: (_) => const AddDoctor(),
+          //Departments
+          DepartmentDashboard.routeName: (_) => const DepartmentDashboard(),
+          AddDepartment.routeName: (_) => const AddDepartment(),
         },
       ),
     );
