@@ -16,6 +16,12 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: <Widget>[
             ReportCard(
+              title: 'Departments',
+              imagePath: AppImages.womanDoctor,
+              child: _titleAndCount(title: 'No. of Doctors', count: 12),
+              onTap: () {},
+            ),
+            ReportCard(
               title: 'Doctors',
               imagePath: AppImages.doctorTab,
               child: _titleAndCount(title: 'No. of Doctors', count: 12),
