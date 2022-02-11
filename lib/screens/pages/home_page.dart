@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
 import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
 import 'package:ramzanadmin/screens/health_card/health_card_dashboard.dart';
+import 'package:ramzanadmin/screens/patients/patient_dashboard.dart';
 import 'package:ramzanadmin/screens/tests/test_dashboard.dart';
 
 import 'package:ramzanadmin/utilities/app_images.dart';
@@ -50,7 +51,8 @@ class HomePage extends StatelessWidget {
               title: 'patients',
               imagePath: AppImages.doctor,
               child: _titleAndCount(title: 'No. of patients', count: 24),
-              onTap: () {},
+              onTap: () =>
+                  Navigator.of(context).pushNamed(PatientDashboard.routeName),
             ),
           ],
         ),
