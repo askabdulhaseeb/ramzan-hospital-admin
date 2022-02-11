@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
             ReportCard(
               title: 'Departments',
               imagePath: AppImages.womanDoctor,
-              child: _titleAndCount(title: 'No. of Doctors', count: 12),
+              child: _titleAndCount(title: 'No. of Departments', count: 12),
               onTap: () => Navigator.of(context)
                   .pushNamed(DepartmentDashboard.routeName),
             ),
@@ -34,18 +34,18 @@ class HomePage extends StatelessWidget {
                   Navigator.of(context).pushNamed(DoctorDashboard.routeName),
             ),
             ReportCard(
-              title: 'Tests',
-              imagePath: AppImages.apprates,
-              child: _titleAndCount(title: 'No. of Tests', count: 12),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(TestDashboard.routeName),
-            ),
-            ReportCard(
               title: 'Health Card',
               imagePath: AppImages.card,
               child: _titleAndCount(title: 'No. of Heath Card', count: 4),
               onTap: () => Navigator.of(context)
                   .pushNamed(HealthCardDashboard.routeName),
+            ),
+            ReportCard(
+              title: 'Tests',
+              imagePath: AppImages.apprates,
+              child: _titleAndCount(title: 'No. of Tests', count: 12),
+              onTap: () =>
+                  Navigator.of(context).pushNamed(TestDashboard.routeName),
             ),
             ReportCard(
               title: 'patients',
