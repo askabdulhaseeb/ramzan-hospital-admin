@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/departments/add_department.dart';
-import 'package:ramzanadmin/screens/departments/edit_department.dart';
-import 'package:ramzanadmin/screens/departments/view_department.dart';
 import '../../widgets/custom_icon_title_button.dart';
+import 'add_health_card.dart';
+import 'edit_health_card.dart';
+import 'view_health_card.dart';
 
-class DepartmentDashboard extends StatelessWidget {
-  const DepartmentDashboard({Key? key}) : super(key: key);
-  static const String routeName = '/DepartmentDashboard';
+class HealthCardDashboard extends StatelessWidget {
+  const HealthCardDashboard({Key? key}) : super(key: key);
+  static const String routeName = '/HealthCardDashboard';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Departments',
+          'Health Cards',
           style: TextStyle(
             color: Theme.of(context).primaryColor,
           ),
@@ -21,9 +21,9 @@ class DepartmentDashboard extends StatelessWidget {
       body: Column(
         children: <Widget>[
           CustomIconTitleButton(
-            title: 'Add Departments',
+            title: 'Add Health Card',
             onTap: () =>
-                Navigator.of(context).pushNamed(AddDepartment.routeName),
+                Navigator.of(context).pushNamed(AddHealthCard.routeName),
           ),
           const Divider(height: 1, thickness: 1),
           Expanded(
@@ -33,15 +33,15 @@ class DepartmentDashboard extends StatelessWidget {
               itemBuilder: (context, index) => ListTile(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewDepartment(),
+                    builder: (context) => const ViewHealthCard(),
                   ));
                 },
-                title: Text('Departments Name $index'),
+                title: Text('Health Card Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditDepartment(),
+                      builder: (context) => const EditHealthCard(),
                     ));
                   },
                   icon: const Icon(

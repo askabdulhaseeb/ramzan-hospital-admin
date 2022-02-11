@@ -6,6 +6,8 @@ import 'package:ramzanadmin/screens/departments/add_department.dart';
 import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
 import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
 import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
+import 'package:ramzanadmin/screens/health_card/add_health_card.dart';
+import 'package:ramzanadmin/screens/health_card/health_card_dashboard.dart';
 import 'package:ramzanadmin/screens/main_screen/main_screen.dart';
 import 'package:ramzanadmin/screens/tests/add_test.dart';
 import 'package:ramzanadmin/screens/tests/test_dashboard.dart';
@@ -40,12 +42,15 @@ class MyApp extends StatelessWidget {
           // Doctor
           DoctorDashboard.routeName: (_) => const DoctorDashboard(),
           AddDoctor.routeName: (_) => const AddDoctor(),
-          //Departments
+          // Departments
           DepartmentDashboard.routeName: (_) => const DepartmentDashboard(),
           AddDepartment.routeName: (_) => const AddDepartment(),
-          //Tests
+          // Tests
           TestDashboard.routeName: (_) => const TestDashboard(),
           AddTest.routeName: (_) => const AddTest(),
+          // Health Card
+          HealthCardDashboard.routeName: (_) => const HealthCardDashboard(),
+          AddHealthCard.routeName: (_) => const AddHealthCard(),
         },
       ),
     );

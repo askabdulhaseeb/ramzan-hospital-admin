@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/departments/add_department.dart';
-import 'package:ramzanadmin/screens/departments/edit_department.dart';
-import 'package:ramzanadmin/screens/departments/view_department.dart';
-import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
-import 'package:ramzanadmin/screens/doctors/edit_doctor.dart';
-import 'package:ramzanadmin/screens/doctors/view_doctor.dart';
 import 'package:ramzanadmin/screens/tests/add_test.dart';
 import 'package:ramzanadmin/screens/tests/edit_test.dart';
 import 'package:ramzanadmin/screens/tests/view_test.dart';
-
 import '../../widgets/custom_icon_title_button.dart';
 
 class TestDashboard extends StatelessWidget {
@@ -28,7 +21,7 @@ class TestDashboard extends StatelessWidget {
       body: Column(
         children: <Widget>[
           CustomIconTitleButton(
-            title: 'Add Tests',
+            title: 'Add Test',
             onTap: () => Navigator.of(context).pushNamed(AddTest.routeName),
           ),
           const Divider(height: 1, thickness: 1),
@@ -42,7 +35,7 @@ class TestDashboard extends StatelessWidget {
                     builder: (context) => const ViewTest(),
                   ));
                 },
-                title: Text('Tests Name $index'),
+                title: Text('Test Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {

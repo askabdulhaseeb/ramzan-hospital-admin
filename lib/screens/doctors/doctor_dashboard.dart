@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
 import 'package:ramzanadmin/screens/doctors/edit_doctor.dart';
 import 'package:ramzanadmin/screens/doctors/view_doctor.dart';
-
 import '../../widgets/custom_icon_title_button.dart';
 
 class DoctorDashboard extends StatelessWidget {
