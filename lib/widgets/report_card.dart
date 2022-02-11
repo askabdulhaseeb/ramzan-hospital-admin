@@ -32,14 +32,19 @@ class ReportCard extends StatelessWidget {
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                gradient: const LinearGradient(
+                gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                   colors: [
-                    Colors.lightBlue,
-                    Colors.blue,
-                    Colors.blueAccent,
+                    Theme.of(context).colorScheme.secondary,
+                    Theme.of(context).colorScheme.primary.withOpacity(0.9),
+                    Theme.of(context).colorScheme.primary,
                   ],
+                  // colors: [
+                  //   Colors.lightBlue,
+                  //   Colors.blue,
+                  //   Colors.blueAccent,
+                  // ],
                 ),
               ),
             ),
