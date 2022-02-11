@@ -44,9 +44,9 @@ class DoctorDashboard extends StatelessWidget {
                       builder: (context) => const EditDoctor(),
                     ));
                   },
-                  icon: const Icon(
+                  icon:  Icon(
                     Icons.edit_outlined,
-                    color: Colors.red,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
               ),

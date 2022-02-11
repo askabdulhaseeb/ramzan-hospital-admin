@@ -22,20 +22,35 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    const Color _primary = Color(0xFF189643);
+    const Color _secondary = Color(0xFFFA8D01);
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: MainBottomNavBarProvider()),
       ],
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Ramzan Hospital',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
             color: Colors.transparent,
             elevation: 0,
-            iconTheme: IconThemeData(color: Colors.blue),
+            iconTheme: IconThemeData(color: _secondary),
           ),
-          primarySwatch: Colors.blue,
+          colorScheme: const ColorScheme(
+            brightness: Brightness.light,
+            primary: _primary,
+            onPrimary: Colors.green,
+            secondary: _secondary,
+            onSecondary: Colors.orange,
+            error: Colors.red,
+            onError: Colors.redAccent,
+            background: Colors.white,
+            onBackground: Colors.grey,
+            surface: Colors.white,
+            onSurface: Colors.grey,
+          ),
+          primaryColor: _primary,
         ),
         home: const MainScreen(),
         routes: <String, WidgetBuilder>{

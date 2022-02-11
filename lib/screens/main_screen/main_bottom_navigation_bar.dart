@@ -20,15 +20,18 @@ class MainBottomNavigationBar extends StatelessWidget {
       onTap: (int index) => _navBar.onTabTapped(index),
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
-          icon: Icon(CupertinoIcons.home),
+          icon: Icon(Icons.home_outlined),
+          activeIcon: Icon(Icons.home),
           label: 'Home',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.rectangle_stack_person_crop),
+          activeIcon: Icon(CupertinoIcons.rectangle_stack_person_crop_fill),
           label: 'Report',
         ),
         BottomNavigationBarItem(
           icon: Icon(CupertinoIcons.profile_circled),
+          activeIcon: Icon(CupertinoIcons.person_crop_circle_fill),
           label: 'Profile',
         ),
       ],

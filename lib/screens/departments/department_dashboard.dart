@@ -44,9 +44,9 @@ class DepartmentDashboard extends StatelessWidget {
                       builder: (context) => const EditDepartment(),
                     ));
                   },
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.edit_outlined,
-                    color: Colors.red,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
               ),

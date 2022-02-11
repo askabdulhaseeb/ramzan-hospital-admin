@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ramzanadmin/screens/pages/home_page.dart';
+import 'package:ramzanadmin/utilities/app_images.dart';
 import '../../providers/main_bottom_nav_bar_provider.dart';
 import 'main_bottom_navigation_bar.dart';
 
@@ -19,7 +20,13 @@ class MainScreen extends StatelessWidget {
     final MainBottomNavBarProvider _provider =
         Provider.of<MainBottomNavBarProvider>(context);
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: false,
+        title: SizedBox(
+          height: 60,
+          child: Image.asset(AppImages.logo),
+        ),
+      ),
       body: _pages[_provider.currentTap],
       bottomNavigationBar: const MainBottomNavigationBar(),
     );
