@@ -1,6 +1,3 @@
-import 'dart:convert';
-import 'dart:core';
-
 class AppUser {
   AppUser({
     required this.uid,
@@ -20,7 +17,7 @@ class AppUser {
   final bool? isBlocked;
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'uid': uid,
       'name': name,
       'phone_number': phoneNumber,
@@ -31,6 +28,7 @@ class AppUser {
     };
   }
 
+  // ignore: sort_constructors_first
   factory AppUser.fromMap(Map<String, dynamic> map) {
     return AppUser(
       uid: map['uid'] ?? '',
@@ -42,9 +40,4 @@ class AppUser {
       isBlocked: map['isBlocked'] ?? false,
     );
   }
-
-  String toJson() => json.encode(toMap());
-
-  factory AppUser.fromJson(String source) =>
-      AppUser.fromMap(json.decode(source));
 }
