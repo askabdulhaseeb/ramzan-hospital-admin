@@ -12,11 +12,11 @@ class ViewPatient extends StatelessWidget {
           'View Patient',
           style: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
-        actions: [
+        actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const EditPatient(),
+              Navigator.of(context).push(MaterialPageRoute<EditPatient>(
+                builder: (BuildContext context) => const EditPatient(),
               ));
             },
             child: const Text('Edit'),

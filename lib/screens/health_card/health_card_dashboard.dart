@@ -30,18 +30,18 @@ class HealthCardDashboard extends StatelessWidget {
             child: ListView.separated(
               itemCount: 200,
               separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (context, index) => ListTile(
+              itemBuilder: (BuildContext context, int index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewHealthCard(),
+                  Navigator.of(context).push(MaterialPageRoute<ViewHealthCard>(
+                    builder: (BuildContext context) => const ViewHealthCard(),
                   ));
                 },
                 title: Text('Health Card Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditHealthCard(),
+                    Navigator.of(context).push(MaterialPageRoute<EditHealthCard>(
+                      builder: (BuildContext context) => const EditHealthCard(),
                     ));
                   },
                   icon:  Icon(

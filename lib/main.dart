@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:ramzanadmin/providers/main_bottom_nav_bar_provider.dart';
-import 'package:ramzanadmin/screens/auth/login_screen.dart';
-import 'package:ramzanadmin/screens/departments/add_department.dart';
-import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
-import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
-import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
-import 'package:ramzanadmin/screens/health_card/add_health_card.dart';
-import 'package:ramzanadmin/screens/health_card/health_card_dashboard.dart';
-import 'package:ramzanadmin/screens/main_screen/main_screen.dart';
-import 'package:ramzanadmin/screens/patients/add_patient.dart';
-import 'package:ramzanadmin/screens/patients/patient_dashboard.dart';
-import 'package:ramzanadmin/screens/tests/add_test.dart';
-import 'package:ramzanadmin/screens/tests/test_dashboard.dart';
+import 'providers/main_bottom_nav_bar_provider.dart';
+import 'screens/auth/login_screen.dart';
+import 'screens/departments/add_department.dart';
+import 'screens/departments/department_dashboard.dart';
+import 'screens/doctors/add_doctor.dart';
+import 'screens/doctors/doctor_dashboard.dart';
+import 'screens/health_card/add_health_card.dart';
+import 'screens/health_card/health_card_dashboard.dart';
+import 'screens/main_screen/main_screen.dart';
+import 'screens/patients/add_patient.dart';
+import 'screens/patients/patient_dashboard.dart';
+import 'screens/tests/add_test.dart';
+import 'screens/tests/test_dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,8 +25,11 @@ class MyApp extends StatelessWidget {
     const Color _primary = Color(0xFF189643);
     const Color _secondary = Color(0xFFFA8D01);
     return MultiProvider(
+      // ignore: always_specify_types
       providers: [
-        ChangeNotifierProvider.value(value: MainBottomNavBarProvider()),
+        ChangeNotifierProvider<MainBottomNavBarProvider>.value(
+          value: MainBottomNavBarProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Ramzan Hospital',

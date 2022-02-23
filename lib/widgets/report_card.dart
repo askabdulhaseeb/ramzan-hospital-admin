@@ -35,7 +35,7 @@ class ReportCard extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
-                  colors: [
+                  colors: <Color>[
                     Theme.of(context).colorScheme.secondary,
                     Theme.of(context).colorScheme.primary.withOpacity(0.9),
                     Theme.of(context).colorScheme.primary,

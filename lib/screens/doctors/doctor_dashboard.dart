@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/doctors/add_doctor.dart';
-import 'package:ramzanadmin/screens/doctors/edit_doctor.dart';
-import 'package:ramzanadmin/screens/doctors/view_doctor.dart';
 import '../../widgets/custom_icon_title_button.dart';
+import 'add_doctor.dart';
+import 'edit_doctor.dart';
+import 'view_doctor.dart';
 
 class DoctorDashboard extends StatelessWidget {
   const DoctorDashboard({Key? key}) : super(key: key);
@@ -29,10 +29,10 @@ class DoctorDashboard extends StatelessWidget {
             child: ListView.separated(
               itemCount: 200,
               separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (context, index) => ListTile(
+              itemBuilder: (BuildContext context, int index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewDoctor(),
+                  Navigator.of(context).push(MaterialPageRoute<ViewDoctor>(
+                    builder: (BuildContext context) => const ViewDoctor(),
                   ));
                 },
                 title: Text('Doctor Name $index'),
@@ -40,8 +40,8 @@ class DoctorDashboard extends StatelessWidget {
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditDoctor(),
+                    Navigator.of(context).push(MaterialPageRoute<EditDoctor>(
+                      builder: (BuildContext context) => const EditDoctor(),
                     ));
                   },
                   icon:  Icon(

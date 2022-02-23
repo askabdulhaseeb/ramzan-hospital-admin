@@ -20,7 +20,7 @@ class _AddDepartmentState extends State<AddDepartment> {
         ),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

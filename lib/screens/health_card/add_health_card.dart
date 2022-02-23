@@ -20,7 +20,7 @@ class _AddHealthCardState extends State<AddHealthCard> {
         ),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

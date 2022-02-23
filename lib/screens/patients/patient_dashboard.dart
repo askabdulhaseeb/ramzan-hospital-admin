@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/patients/add_patient.dart';
-import 'package:ramzanadmin/screens/tests/add_test.dart';
+import 'add_patient.dart';
 import '../../widgets/custom_icon_title_button.dart';
 import 'edit_patient.dart';
 import 'view_patient.dart';
@@ -30,18 +29,18 @@ class PatientDashboard extends StatelessWidget {
             child: ListView.separated(
               itemCount: 200,
               separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (context, index) => ListTile(
+              itemBuilder: (BuildContext context, int index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewPatient(),
+                  Navigator.of(context).push(MaterialPageRoute<ViewPatient>(
+                    builder: (BuildContext context) => const ViewPatient(),
                   ));
                 },
                 title: Text('Patient Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditPatient(),
+                    Navigator.of(context).push(MaterialPageRoute<EditPatient>(
+                      builder: (BuildContext context) => const EditPatient(),
                     ));
                   },
                   icon:  Icon(

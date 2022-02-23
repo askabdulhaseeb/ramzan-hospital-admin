@@ -20,7 +20,7 @@ class _AddTestState extends State<AddTest> {
         ),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

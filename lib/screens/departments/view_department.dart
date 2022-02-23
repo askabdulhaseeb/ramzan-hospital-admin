@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'edit_department.dart';
 
 class ViewDepartment extends StatelessWidget {
@@ -13,11 +12,11 @@ class ViewDepartment extends StatelessWidget {
           'View Department',
           style: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
-        actions: [
+        actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const EditDepartment(),
+              Navigator.of(context).push(MaterialPageRoute<EditDepartment>(
+                builder: (BuildContext context) => const EditDepartment(),
               ));
             },
             child: const Text('Edit'),

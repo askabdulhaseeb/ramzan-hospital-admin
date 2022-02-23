@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/utilities/custom_validators.dart';
-import 'package:ramzanadmin/widgets/custom_elevated_button.dart';
-import 'package:ramzanadmin/widgets/custom_password_textformfield.dart';
-import 'package:ramzanadmin/widgets/custom_textformfield.dart';
+import '../../utilities/custom_validators.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/custom_password_textformfield.dart';
+import '../../widgets/custom_textformfield.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

@@ -20,7 +20,7 @@ class _AddPatientState extends State<AddPatient> {
         ),
       ),
       body: Column(
-        children: <Widget>[],
+        children: const <Widget>[],
       ),
     );
   }

@@ -12,11 +12,11 @@ class ViewHealthCard extends StatelessWidget {
           'View Health Card',
           style: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
-        actions: [
+        actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const EditHealthCard(),
+              Navigator.of(context).push(MaterialPageRoute<EditHealthCard>(
+                builder: (BuildContext context) => const EditHealthCard(),
               ));
             },
             child: const Text('Edit'),

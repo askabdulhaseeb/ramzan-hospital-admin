@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/departments/add_department.dart';
-import 'package:ramzanadmin/screens/departments/edit_department.dart';
-import 'package:ramzanadmin/screens/departments/view_department.dart';
 import '../../widgets/custom_icon_title_button.dart';
+import 'add_department.dart';
+import 'edit_department.dart';
+import 'view_department.dart';
 
 class DepartmentDashboard extends StatelessWidget {
   const DepartmentDashboard({Key? key}) : super(key: key);
@@ -30,18 +30,18 @@ class DepartmentDashboard extends StatelessWidget {
             child: ListView.separated(
               itemCount: 200,
               separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (context, index) => ListTile(
+              itemBuilder: (BuildContext context, int index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewDepartment(),
+                  Navigator.of(context).push(MaterialPageRoute<ViewDepartment>(
+                    builder: (BuildContext context) => const ViewDepartment(),
                   ));
                 },
                 title: Text('Departments Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditDepartment(),
+                    Navigator.of(context).push(MaterialPageRoute<EditDepartment>(
+                      builder: (BuildContext context) => const EditDepartment(),
                     ));
                   },
                   icon: Icon(

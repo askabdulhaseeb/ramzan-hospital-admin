@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/departments/department_dashboard.dart';
-import 'package:ramzanadmin/screens/doctors/doctor_dashboard.dart';
-import 'package:ramzanadmin/screens/health_card/health_card_dashboard.dart';
-import 'package:ramzanadmin/screens/patients/patient_dashboard.dart';
-import 'package:ramzanadmin/screens/tests/test_dashboard.dart';
-
-import 'package:ramzanadmin/utilities/app_images.dart';
-
+import '../../utilities/app_images.dart';
 import '../../widgets/report_card.dart';
+import '../departments/department_dashboard.dart';
+import '../doctors/doctor_dashboard.dart';
+import '../health_card/health_card_dashboard.dart';
+import '../patients/patient_dashboard.dart';
+import '../tests/test_dashboard.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);

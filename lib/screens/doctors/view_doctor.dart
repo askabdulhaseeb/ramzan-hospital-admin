@@ -12,11 +12,11 @@ class ViewDoctor extends StatelessWidget {
           'View Doctor',
           style: TextStyle(color: Theme.of(context).colorScheme.primary),
         ),
-        actions: [
+        actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const EditDoctor(),
+              Navigator.of(context).push(MaterialPageRoute<EditDoctor>(
+                builder: (BuildContext context) => const EditDoctor(),
               ));
             },
             child: const Text('Edit'),

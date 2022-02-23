@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ramzanadmin/screens/tests/add_test.dart';
-import 'package:ramzanadmin/screens/tests/edit_test.dart';
-import 'package:ramzanadmin/screens/tests/view_test.dart';
 import '../../widgets/custom_icon_title_button.dart';
+import 'add_test.dart';
+import 'edit_test.dart';
+import 'view_test.dart';
 
 class TestDashboard extends StatelessWidget {
   const TestDashboard({Key? key}) : super(key: key);
@@ -29,18 +29,18 @@ class TestDashboard extends StatelessWidget {
             child: ListView.separated(
               itemCount: 200,
               separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (context, index) => ListTile(
+              itemBuilder: (BuildContext context, int index) => ListTile(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const ViewTest(),
+                  Navigator.of(context).push(MaterialPageRoute<ViewTest>(
+                    builder: (BuildContext context) => const ViewTest(),
                   ));
                 },
                 title: Text('Test Name $index'),
                 trailing: IconButton(
                   splashRadius: 24,
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const EditTest(),
+                    Navigator.of(context).push(MaterialPageRoute<EditTest>(
+                      builder: (BuildContext context) => const EditTest(),
                     ));
                   },
                   icon: Icon(
