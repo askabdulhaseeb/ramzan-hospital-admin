@@ -11,7 +11,7 @@ class AppName extends StatelessWidget {
           'Ramzan',
           style: TextStyle(
             fontWeight: FontWeight.w800,
-            fontSize: 30,
+            fontSize: 26,
             color: Theme.of(context).colorScheme.primary,
           ),
         ),
@@ -19,7 +19,7 @@ class AppName extends StatelessWidget {
           'Clinic',
           style: TextStyle(
             fontWeight: FontWeight.w400,
-            fontSize: 30,
+            fontSize: 26,
             color: Theme.of(context).colorScheme.secondary,
           ),
         ),
