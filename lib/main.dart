@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'providers/app_provider.dart';
 import 'providers/main_bottom_nav_bar_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/departments/add_department.dart';
@@ -16,7 +17,7 @@ import 'screens/tests/add_test.dart';
 import 'screens/tests/test_dashboard.dart';
 
 Future<void> main() async {
-   WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<MainBottomNavBarProvider>.value(
           value: MainBottomNavBarProvider(),
         ),
+        ChangeNotifierProvider<AppProvider>.value(value: AppProvider()),
       ],
       child: MaterialApp(
         title: 'Ramzan Hospital',

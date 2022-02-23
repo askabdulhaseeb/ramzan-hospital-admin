@@ -9,11 +9,15 @@ class UserAPI {
   // functions
   Future<List<AppUser>> getAllUsers() async {
     final List<AppUser> appUser = <AppUser>[];
-    final QuerySnapshot<Map<String, dynamic>> doc =
-        await _instance.collection(_collection).get();
-
-    for (DocumentSnapshot<Map<String, dynamic>> element in doc.docs) {
-      appUser.add(AppUser.fromDoc(element));
+    try {
+      final QuerySnapshot<Map<String, dynamic>> doc =
+          await _instance.collection(_collection).get();
+      if (doc.docs.isEmpty) return appUser;
+      for (DocumentSnapshot<Map<String, dynamic>> element in doc.docs) {
+        appUser.add(AppUser.fromDoc(element));
+      }
+    } catch (e) {
+      CustomToast.errorToast(message: e.toString());
     }
     return appUser;
   }
