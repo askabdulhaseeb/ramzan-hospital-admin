@@ -15,10 +15,10 @@ class Department {
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'id': id,
-      'name': name,
-      'createdBy': createdBy,
-      'timestamp': timestamp,
+      'id': id.trim(),
+      'name': name.trim(),
+      'createdBy': createdBy?.trim(),
+      'timestamp': timestamp ?? 0,
     };
   }
 

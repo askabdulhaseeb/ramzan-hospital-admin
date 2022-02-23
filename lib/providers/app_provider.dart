@@ -38,6 +38,7 @@ class AppProvider extends ChangeNotifier {
     if (_departments.isNotEmpty) return;
     _departments.addAll(await DepartmentAPI().departments());
     print(
-        'Print: App_Provider.dart: No of Departments: ${_departments.length}');
+      'Print: App_Provider.dart: No of Departments: ${_departments.length}',
+    );
   }
 }
