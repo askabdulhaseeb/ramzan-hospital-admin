@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class AppUser {
   AppUser({
     required this.uid,
@@ -29,15 +31,15 @@ class AppUser {
   }
 
   // ignore: sort_constructors_first
-  factory AppUser.fromMap(Map<String, dynamic> map) {
+  factory AppUser.fromDoc(DocumentSnapshot<Map<String, dynamic>> doc) {
     return AppUser(
-      uid: map['uid'] ?? '',
-      name: map['name'] ?? '',
-      phoneNumber: map['phone_number'] ?? '',
-      email: map['email'] ?? '',
-      imageURL: map['imageURL'] ?? '',
-      departments: List<String>.from(map['departments']),
-      isBlocked: map['isBlocked'] ?? false,
+      uid: doc.data()?['uid'] ?? '',
+      name: doc.data()?['name'] ?? '',
+      phoneNumber: doc.data()?['phone_number'] ?? '',
+      email: doc.data()?['email'] ?? '',
+      imageURL: doc.data()?['imageURL'] ?? '',
+      departments: List<String>.from(doc.data()?['departments'] ?? <String>[]),
+      isBlocked: doc.data()?['isBlocked'] ?? false,
     );
   }
 }

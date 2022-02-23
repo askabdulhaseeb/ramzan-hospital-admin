@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/main_bottom_nav_bar_provider.dart';
@@ -14,7 +15,9 @@ import 'screens/patients/patient_dashboard.dart';
 import 'screens/tests/add_test.dart';
 import 'screens/tests/test_dashboard.dart';
 
-void main() {
+Future<void> main() async {
+   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
