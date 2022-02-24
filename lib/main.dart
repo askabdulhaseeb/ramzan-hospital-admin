@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'providers/app_provider.dart';
+import 'providers/department_provider.dart';
 import 'providers/main_bottom_nav_bar_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/departments/add_department.dart';
@@ -34,7 +34,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<MainBottomNavBarProvider>.value(
           value: MainBottomNavBarProvider(),
         ),
-        ChangeNotifierProvider<AppProvider>.value(value: AppProvider()),
+        ChangeNotifierProvider<DepartmentProvider>.value(
+          value: DepartmentProvider(),
+        ),
       ],
       child: MaterialApp(
         title: 'Ramzan Hospital',

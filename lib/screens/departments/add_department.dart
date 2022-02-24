@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../../database/department_api.dart';
 import '../../models/department.dart';
-import '../../providers/app_provider.dart';
+import '../../providers/department_provider.dart';
 import '../../utilities/custom_validators.dart';
 import '../../widgets/custom_elevated_button.dart';
 import '../../widgets/custom_textformfield.dart';
@@ -48,16 +47,24 @@ class _AddDepartmentState extends State<AddDepartment> {
                       title: 'Add Department'.toUpperCase(),
                       onTap: () async {
                         if (_key.currentState?.validate() ?? false) {
+                          setState(() {
+                            _isLoading = true;
+                          });
                           final int _time =
                               DateTime.now().microsecondsSinceEpoch;
                           final bool _ok = await DepartmentAPI().add(Department(
                             id: _time.toString(),
                             name: _name.text.trim(),
-                            createdBy: 'Me',
+                            createdBy: 'Me', //TODO: update pending
                             timestamp: _time,
                           ));
+
+                          _name.text = '';
+                          setState(() {
+                            _isLoading = false;
+                          });
                           if (_ok) {
-                            Provider.of<AppProvider>(context, listen: false)
+                            Provider.of<DepartmentProvider>(context, listen: false)
                                 .refresh();
                             Navigator.of(context).pop();
                           }

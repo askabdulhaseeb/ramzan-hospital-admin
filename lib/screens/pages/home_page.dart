@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/department_provider.dart';
 import '../../utilities/app_images.dart';
 import '../../widgets/report_card.dart';
 import '../departments/department_dashboard.dart';
@@ -17,12 +19,17 @@ class HomePage extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            ReportCard(
-              title: 'Departments',
-              imagePath: AppImages.womanDoctor,
-              child: _titleAndCount(title: 'No. of Departments', count: 12),
-              onTap: () => Navigator.of(context)
-                  .pushNamed(DepartmentDashboard.routeName),
+            Consumer<DepartmentProvider>(
+              builder: (_, DepartmentProvider value, __) => ReportCard(
+                title: 'Departments',
+                imagePath: AppImages.womanDoctor,
+                child: _titleAndCount(
+                  title: 'No. of Departments',
+                  count: value.departments.length,
+                ),
+                onTap: () => Navigator.of(context)
+                    .pushNamed(DepartmentDashboard.routeName),
+              ),
             ),
             ReportCard(
               title: 'Doctors',

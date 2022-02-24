@@ -17,7 +17,7 @@ class Department {
     return <String, dynamic>{
       'id': id.trim(),
       'name': name.trim(),
-      'createdBy': createdBy?.trim(),
+      'createdBy': createdBy?.trim(), //TODO: update pending
       'timestamp': timestamp ?? 0,
     };
   }

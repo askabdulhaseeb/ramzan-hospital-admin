@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/department_provider.dart';
 import '../../widgets/custom_icon_title_button.dart';
 import 'add_department.dart';
 import 'edit_department.dart';
@@ -27,26 +29,34 @@ class DepartmentDashboard extends StatelessWidget {
           ),
           const Divider(height: 1, thickness: 1),
           Expanded(
-            child: ListView.separated(
-              itemCount: 200,
-              separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (BuildContext context, int index) => ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute<ViewDepartment>(
-                    builder: (BuildContext context) => const ViewDepartment(),
-                  ));
-                },
-                title: Text('Departments Name $index'),
-                trailing: IconButton(
-                  splashRadius: 24,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute<EditDepartment>(
-                      builder: (BuildContext context) => const EditDepartment(),
+            child: Consumer<DepartmentProvider>(
+              builder: (_, DepartmentProvider provider, __) => ListView.separated(
+                itemCount: provider.departments.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (BuildContext context, int index) => ListTile(
+                  onTap: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute<ViewDepartment>(
+                      builder: (BuildContext context) => ViewDepartment(
+                        department: provider.departments[index],
+                      ),
                     ));
                   },
-                  icon: Icon(
-                    Icons.edit_outlined,
-                    color: Theme.of(context).colorScheme.secondary,
+                  title: Text(provider.departments[index].name),
+                  trailing: IconButton(
+                    splashRadius: 24,
+                    onPressed: () {
+                      Navigator.of(context)
+                          .push(MaterialPageRoute<EditDepartment>(
+                        builder: (BuildContext context) => EditDepartment(
+                          department: provider.departments[index],
+                        ),
+                      ));
+                    },
+                    icon: Icon(
+                      Icons.edit_outlined,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
                 ),
               ),

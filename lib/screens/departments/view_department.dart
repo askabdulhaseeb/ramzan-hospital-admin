@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../models/department.dart';
 import 'edit_department.dart';
 
 class ViewDepartment extends StatelessWidget {
-  const ViewDepartment({Key? key}) : super(key: key);
+  const ViewDepartment({required this.department, Key? key}) : super(key: key);
+  final Department department;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,9 @@ class ViewDepartment extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute<EditDepartment>(
-                builder: (BuildContext context) => const EditDepartment(),
+                builder: (BuildContext context) => EditDepartment(
+                  department: department,
+                ),
               ));
             },
             child: const Text('Edit'),
