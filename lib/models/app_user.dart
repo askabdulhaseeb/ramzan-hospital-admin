@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../enums/user_type_enum.dart';
+
 class AppUser {
   AppUser({
     required this.uid,
@@ -7,16 +9,20 @@ class AppUser {
     this.phoneNumber,
     this.email,
     this.imageURL = '',
+    this.type = UserTypeEnum.STAFF,
     this.departments,
     this.isBlocked = false,
+    this.isAdmin = false,
   });
   final String uid;
   final String? name;
   final String? phoneNumber;
   final String? email;
+  final UserTypeEnum type;
   final String? imageURL;
   final List<String>? departments;
   final bool? isBlocked;
+  final bool? isAdmin;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
@@ -24,9 +30,11 @@ class AppUser {
       'name': name,
       'phone_number': phoneNumber,
       'email': email,
+      'type': UserTypeEnumConverter.fromEnum(type),
       'imageURL': imageURL,
       'departments': departments,
-      'isBlocked': isBlocked,
+      'is_blocked': isBlocked,
+      'is_admin': isAdmin,
     };
   }
 
@@ -37,9 +45,13 @@ class AppUser {
       name: doc.data()?['name'] ?? '',
       phoneNumber: doc.data()?['phone_number'] ?? '',
       email: doc.data()?['email'] ?? '',
+      type: UserTypeEnumConverter.fromString(
+        doc.data()?['type'] ?? UserTypeEnum.STAFF,
+      ),
       imageURL: doc.data()?['imageURL'] ?? '',
       departments: List<String>.from(doc.data()?['departments'] ?? <String>[]),
-      isBlocked: doc.data()?['isBlocked'] ?? false,
+      isBlocked: doc.data()?['is_blocked'] ?? false,
+      isAdmin: doc.data()?['is_admin'] ?? false,
     );
   }
 }

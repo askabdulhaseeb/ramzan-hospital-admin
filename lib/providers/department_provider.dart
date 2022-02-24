@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../database/department_api.dart';
-import '../database/user_api.dart';
-import '../models/app_user.dart';
 import '../models/department.dart';
 
 class DepartmentProvider extends ChangeNotifier {
@@ -22,7 +19,6 @@ class DepartmentProvider extends ChangeNotifier {
   void _initDepartment() async {
     if (_departments.isNotEmpty) return;
     final List<Department> _temp = await DepartmentAPI().departments();
-    _departments = <Department>[];
     _departments = _temp;
     print(
       'Print: App_Provider.dart: No of Departments: ${_departments.length}',
