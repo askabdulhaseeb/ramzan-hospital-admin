@@ -16,6 +16,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   fluttertoast: ^8.0.8
+  image_picker: ^0.8.4+9
   dropdown_search: ^2.0.1
 
   intl: ^0.17.0

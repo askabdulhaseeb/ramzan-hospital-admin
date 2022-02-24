@@ -35,5 +35,11 @@ class CustomValidator {
     return (value!.length < 5) ? 'Enter more then 4 characters' : null;
   }
 
+  static String? phoneNumber(String? value) {
+    return (value!.length < 10)
+        ? 'Phone number contain at least 10 number'
+        : null;
+  }
+
   static String? retaunNull(String? value) => null;
 }

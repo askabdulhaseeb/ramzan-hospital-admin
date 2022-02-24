@@ -6,6 +6,7 @@ class ReportCard extends StatelessWidget {
     required this.child,
     required this.imagePath,
     required this.onTap,
+    this.subtitle = 'Tap here for more details',
     this.height = 120,
     this.opacity = 0.3,
     Key? key,
@@ -14,6 +15,7 @@ class ReportCard extends StatelessWidget {
   final String title;
   final Widget child;
   final String imagePath;
+  final String subtitle;
   final double opacity;
   final VoidCallback onTap;
 
@@ -74,9 +76,9 @@ class ReportCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   child,
-                  const Text(
-                    'Tap here for more details',
-                    style: TextStyle(color: Colors.white54),
+                  Text(
+                    subtitle,
+                    style: const TextStyle(color: Colors.white54),
                   ),
                 ],
               ),

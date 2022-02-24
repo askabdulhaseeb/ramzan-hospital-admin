@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../database/user_api.dart';
+import '../enums/user_type_enum.dart';
 import '../models/app_user.dart';
 
 class UserProvider extends ChangeNotifier {
@@ -8,6 +9,15 @@ class UserProvider extends ChangeNotifier {
   bool _requestDone = false;
 
   List<AppUser> get users => _users;
+
+  List<AppUser> doctors() {
+    List<AppUser> _temp = <AppUser>[];
+    _temp = _users
+        .where((AppUser element) => element.type == UserTypeEnum.DOCTOR)
+        .cast<AppUser>()
+        .toList();
+    return _temp;
+  }
 
   void init() {
     _init();
@@ -21,7 +31,9 @@ class UserProvider extends ChangeNotifier {
 
   _init() async {
     if (_requestDone) return;
-    _users.addAll(await UserAPI().getAllUsers());
+    List<AppUser> _temp = await UserAPI().getAllUsers();
+    _users = _temp;
+    print(_users[0].type);
     notifyListeners();
     print('Print: App_Provider.dart: No of Users: ${_users.length}');
   }

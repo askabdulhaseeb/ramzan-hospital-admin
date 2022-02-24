@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/department_provider.dart';
+import '../../providers/user_provider.dart';
 import '../../utilities/app_images.dart';
 import '../../widgets/report_card.dart';
 import '../departments/department_dashboard.dart';
@@ -31,19 +32,26 @@ class HomePage extends StatelessWidget {
                     .pushNamed(DepartmentDashboard.routeName),
               ),
             ),
-            ReportCard(
-              title: 'Doctors',
-              imagePath: AppImages.doctorTab,
-              child: _titleAndCount(title: 'No. of Doctors', count: 12),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(DoctorDashboard.routeName),
+            Consumer<UserProvider>(
+              builder: (_, UserProvider doctProvider, __) => ReportCard(
+                title: 'Doctors',
+                imagePath: AppImages.doctorTab,
+                child: _titleAndCount(
+                  title: 'No. of Doctors',
+                  count: doctProvider.doctors().length,
+                ),
+                onTap: () =>
+                    Navigator.of(context).pushNamed(DoctorDashboard.routeName),
+              ),
             ),
             ReportCard(
               title: 'Health Card',
               imagePath: AppImages.card,
-              child: _titleAndCount(title: 'No. of Heath Card', count: 4),
-              onTap: () => Navigator.of(context)
-                  .pushNamed(HealthCardDashboard.routeName),
+              child: _titleAndCount(title: 'No. of Heath Card', count: 0),
+              subtitle: 'Will add soon',
+              // onTap: () => Navigator.of(context)
+              //     .pushNamed(HealthCardDashboard.routeName),
+              onTap: () {},
             ),
             ReportCard(
               title: 'Tests',
