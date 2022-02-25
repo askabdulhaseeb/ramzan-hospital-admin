@@ -46,7 +46,7 @@ class DoctorDashboard extends StatelessWidget {
                           Navigator.of(context)
                               .push(MaterialPageRoute<ViewDoctor>(
                             builder: (BuildContext context) =>
-                                const ViewDoctor(),
+                                ViewDoctor(doctor: _doctor[index]),
                           ));
                         },
                         title:
@@ -59,8 +59,9 @@ class DoctorDashboard extends StatelessWidget {
                           onPressed: () {
                             Navigator.of(context)
                                 .push(MaterialPageRoute<EditDoctor>(
-                              builder: (BuildContext context) =>
-                                  const EditDoctor(),
+                              builder: (BuildContext context) => EditDoctor(
+                                doctor: _doctor[index],
+                              ),
                             ));
                           },
                           icon: Icon(

@@ -45,15 +45,14 @@ class HomePage extends StatelessWidget {
                     Navigator.of(context).pushNamed(DoctorDashboard.routeName),
               ),
             ),
-            ReportCard(
-              title: 'Health Card',
-              imagePath: AppImages.card,
-              child: _titleAndCount(title: 'No. of Heath Card', count: 0),
-              subtitle: 'Will add soon',
-              // onTap: () => Navigator.of(context)
-              //     .pushNamed(HealthCardDashboard.routeName),
-              onTap: () {},
-            ),
+            // ReportCard(
+            //   title: 'Health Card',
+            //   imagePath: AppImages.card,
+            //   child: _titleAndCount(title: 'No. of Heath Card', count: 0),
+            //   subtitle: 'Will add soon',
+            // onTap: () => Navigator.of(context)
+            //     .pushNamed(HealthCardDashboard.routeName),
+            // ),
             Consumer<TestProvider>(
               builder: (_, TestProvider testProvider, __) => ReportCard(
                 title: 'Tests',

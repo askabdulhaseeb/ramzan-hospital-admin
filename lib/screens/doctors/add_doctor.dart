@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
 import '../../database/user_api.dart';
 import '../../enums/user_type_enum.dart';
 import '../../functions/image_functions.dart';
