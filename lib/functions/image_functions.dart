@@ -4,6 +4,7 @@ class ImageFunctions {
   Future<XFile?> imageFromGalary() async {
     final XFile? _image =
         await ImagePicker().pickImage(source: ImageSource.gallery);
-    return null;
+    if (_image == null) return null;
+    return _image;
   }
 }

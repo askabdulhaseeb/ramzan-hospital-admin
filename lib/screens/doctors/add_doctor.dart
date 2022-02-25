@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -107,9 +109,17 @@ class _AddDoctorState extends State<AddDoctor> {
                             });
                             final int _time =
                                 DateTime.now().microsecondsSinceEpoch;
+                            String _url = '';
+                            if (_file != null) {
+                              _url = await UserAPI().uploadImage(
+                                File(_file!.path),
+                                _time.toString(),
+                              );
+                            }
                             AppUser _user = AppUser(
                               uid: _time.toString(),
                               name: _name.text,
+                              imageURL: _url,
                               departments: <String>[_departmentId],
                               email: _email.text,
                               phoneNumber: _phoneNumber.text,

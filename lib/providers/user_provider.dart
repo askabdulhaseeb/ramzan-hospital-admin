@@ -33,7 +33,6 @@ class UserProvider extends ChangeNotifier {
     if (_requestDone) return;
     List<AppUser> _temp = await UserAPI().getAllUsers();
     _users = _temp;
-    print(_users[0].type);
     notifyListeners();
     print('Print: App_Provider.dart: No of Users: ${_users.length}');
   }

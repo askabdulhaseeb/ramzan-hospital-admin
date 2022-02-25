@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 import '../models/app_user.dart';
 import '../widgets/custom_toast.dart';
@@ -22,7 +25,6 @@ class UserAPI {
     return appUser;
   }
 
-  // functions
   Future<AppUser?>? getInfo({required String uid}) async {
     final DocumentSnapshot<Map<String, dynamic>>? doc =
         await _instance.collection(_collection).doc(uid).get();
@@ -41,5 +43,12 @@ class UserAPI {
       CustomToast.errorToast(message: e.toString());
       return false;
     }
+  }
+
+  Future<String> uploadImage(File file, String uid) async {
+    TaskSnapshot snapshot =
+        await FirebaseStorage.instance.ref('profile_images/$uid').putFile(file);
+    String url = (await snapshot.ref.getDownloadURL()).toString();
+    return url;
   }
 }

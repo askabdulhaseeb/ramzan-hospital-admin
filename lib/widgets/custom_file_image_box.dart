@@ -6,11 +6,13 @@ class CustomFileImageBox extends StatelessWidget {
   const CustomFileImageBox({
     required this.onTap,
     this.title = 'Upload Image',
+    this.imageURL = '',
     this.size = 80,
     this.file,
     Key? key,
   }) : super(key: key);
   final XFile? file;
+  final String? imageURL;
   final String title;
   final VoidCallback onTap;
   final double size;
@@ -26,26 +28,28 @@ class CustomFileImageBox extends StatelessWidget {
               height: size,
               width: size,
               color: Theme.of(context).primaryColor,
-              child: file == null
-                  ? const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: FittedBox(
-                        child: Text(
-                          'No\nImage',
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(color: Colors.white),
+              child: (imageURL != null && imageURL != '' && file == null)
+                  ? Image.network(imageURL ?? '')
+                  : file == null
+                      ? const Padding(
+                          padding: EdgeInsets.all(8.0),
+                          child: FittedBox(
+                            child: Text(
+                              'No\nImage',
+                              maxLines: 2,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        )
+                      : SizedBox(
+                          height: double.infinity,
+                          width: double.infinity,
+                          child: Image.file(
+                            File(file!.path),
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
-                    )
-                  : SizedBox(
-                      height: double.infinity,
-                      width: double.infinity,
-                      child: Image.file(
-                        File(file!.path),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
             ),
           ),
           TextButton(

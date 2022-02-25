@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +39,6 @@ class _EditDoctorState extends State<EditDoctor> {
     _name.text = widget.doctor.name ?? '';
     _email.text = widget.doctor.email ?? '';
     _phoneNumber.text = widget.doctor.phoneNumber ?? '';
-
     super.initState();
   }
 
@@ -59,6 +60,7 @@ class _EditDoctorState extends State<EditDoctor> {
               children: <Widget>[
                 CustomFileImageBox(
                   file: _file,
+                  imageURL: widget.doctor.imageURL,
                   onTap: () async {
                     _file = await ImageFunctions().imageFromGalary();
                     setState(() {});
@@ -117,9 +119,17 @@ class _EditDoctorState extends State<EditDoctor> {
                             setState(() {
                               _isLoadiing = true;
                             });
+                            String _url = '';
+                            if (_file != null) {
+                              _url = await UserAPI().uploadImage(
+                                File(_file!.path),
+                                widget.doctor.uid,
+                              );
+                            }
                             AppUser _user = AppUser(
                               uid: widget.doctor.uid,
                               name: _name.text,
+                              imageURL: _url,
                               departments: <String>[_departmentId],
                               email: _email.text,
                               phoneNumber: _phoneNumber.text,
