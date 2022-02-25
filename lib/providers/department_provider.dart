@@ -16,6 +16,13 @@ class DepartmentProvider extends ChangeNotifier {
 
   List<Department> get departments => <Department>[..._departments];
 
+  Department? department({required String id}) {
+    final int index =
+        _departments.indexWhere((Department element) => element.id == id);
+    if (index < 0) return null;
+    return _departments[index];
+  }
+
   void _initDepartment() async {
     if (_departments.isNotEmpty) return;
     final List<Department> _temp = await DepartmentAPI().departments();

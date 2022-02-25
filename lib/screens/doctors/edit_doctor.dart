@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-
 import '../../database/user_api.dart';
 import '../../enums/user_type_enum.dart';
 import '../../functions/image_functions.dart';
@@ -75,6 +74,8 @@ class _EditDoctorState extends State<EditDoctor> {
                 Consumer<DepartmentProvider>(
                   builder: (_, DepartmentProvider depProvider, __) =>
                       DepartmentDropdown(
+                    selectedItem: depProvider.department(
+                        id: widget.doctor.departments?[0] ?? ''),
                     items: depProvider.departments,
                     onChanged: (Department? newSelection) {
                       _departmentId = newSelection?.id ?? '';
