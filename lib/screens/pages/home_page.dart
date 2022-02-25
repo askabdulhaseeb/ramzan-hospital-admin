@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/department_provider.dart';
+import '../../providers/test_provider.dart';
 import '../../providers/user_provider.dart';
 import '../../utilities/app_images.dart';
 import '../../widgets/report_card.dart';
@@ -53,12 +54,17 @@ class HomePage extends StatelessWidget {
               //     .pushNamed(HealthCardDashboard.routeName),
               onTap: () {},
             ),
-            ReportCard(
-              title: 'Tests',
-              imagePath: AppImages.apprates,
-              child: _titleAndCount(title: 'No. of Tests', count: 12),
-              onTap: () =>
-                  Navigator.of(context).pushNamed(TestDashboard.routeName),
+            Consumer<TestProvider>(
+              builder: (_, TestProvider testProvider, __) => ReportCard(
+                title: 'Tests',
+                imagePath: AppImages.apprates,
+                child: _titleAndCount(
+                  title: 'No. of Tests',
+                  count: testProvider.tests.length,
+                ),
+                onTap: () =>
+                    Navigator.of(context).pushNamed(TestDashboard.routeName),
+              ),
             ),
             ReportCard(
               title: 'patients',

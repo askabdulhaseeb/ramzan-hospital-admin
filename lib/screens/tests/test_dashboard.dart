@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import '../../providers/test_provider.dart';
 import '../../widgets/custom_icon_title_button.dart';
 import 'add_test.dart';
 import 'edit_test.dart';
@@ -26,26 +28,32 @@ class TestDashboard extends StatelessWidget {
           ),
           const Divider(height: 1, thickness: 1),
           Expanded(
-            child: ListView.separated(
-              itemCount: 200,
-              separatorBuilder: (_, __) => const Divider(height: 1),
-              itemBuilder: (BuildContext context, int index) => ListTile(
-                onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute<ViewTest>(
-                    builder: (BuildContext context) => const ViewTest(),
-                  ));
-                },
-                title: Text('Test Name $index'),
-                trailing: IconButton(
-                  splashRadius: 24,
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute<EditTest>(
-                      builder: (BuildContext context) => const EditTest(),
+            child: Consumer<TestProvider>(
+              builder: (_, TestProvider provider, __) => ListView.separated(
+                itemCount: provider.tests.length,
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemBuilder: (BuildContext context, int index) => ListTile(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute<ViewTest>(
+                      builder: (BuildContext context) => ViewTest(
+                        labTest: provider.tests[index],
+                      ),
                     ));
                   },
-                  icon: Icon(
-                    Icons.edit_outlined,
-                    color: Theme.of(context).colorScheme.secondary,
+                  title: Text(provider.tests[index].name),
+                  trailing: IconButton(
+                    splashRadius: 24,
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute<EditTest>(
+                        builder: (BuildContext context) => EditTest(
+                          test: provider.tests[index],
+                        ),
+                      ));
+                    },
+                    icon: Icon(
+                      Icons.edit_outlined,
+                      color: Theme.of(context).colorScheme.secondary,
+                    ),
                   ),
                 ),
               ),

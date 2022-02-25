@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../providers/department_provider.dart';
+import '../../providers/test_provider.dart';
 import '../../providers/user_provider.dart';
 import '../../utilities/app_images.dart';
 import '../../widgets/app_name.dart';
@@ -23,6 +24,7 @@ class MainScreen extends StatelessWidget {
         Provider.of<MainBottomNavBarProvider>(context);
     Provider.of<DepartmentProvider>(context).init();
     Provider.of<UserProvider>(context).init();
+    Provider.of<TestProvider>(context).init();
     return Scaffold(
       appBar: AppBar(
         centerTitle: false,

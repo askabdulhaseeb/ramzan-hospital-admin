@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'providers/department_provider.dart';
 import 'providers/main_bottom_nav_bar_provider.dart';
+import 'providers/test_provider.dart';
 import 'providers/user_provider.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/departments/add_department.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider<UserProvider>.value(
           value: UserProvider(),
+        ),
+        ChangeNotifierProvider<TestProvider>.value(
+          value: TestProvider(),
         ),
       ],
       child: MaterialApp(

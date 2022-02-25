@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../../models/lab_test.dart';
 import 'edit_test.dart';
 
 class ViewTest extends StatelessWidget {
-  const ViewTest({Key? key}) : super(key: key);
+  const ViewTest({required this.labTest, Key? key}) : super(key: key);
+  final LabTest labTest;
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class ViewTest extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute<EditTest>(
-                builder: (BuildContext context) => const EditTest(),
+                builder: (BuildContext context) => EditTest(test: labTest),
               ));
             },
             child: const Text('Edit'),
